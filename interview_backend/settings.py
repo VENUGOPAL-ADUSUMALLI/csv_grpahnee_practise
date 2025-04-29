@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "inteview",
     "rest_framework",
-    "cacheops",
     "graphene_django",
     "django_extensions"
 ]
