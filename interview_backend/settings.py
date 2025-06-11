@@ -124,25 +124,21 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CACHES = {
     "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-        }
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
     }
 }
-CACHEOPS_REDIS = {
-    'host': 'localhost',  # or Redis URL
-    'port': 6379,
-    'db': 1,
-    'socket_timeout': 3,
-}
+# CACHEOPS_REDIS = {
+#     'host': 'localhost',  # or Redis URL
+#     'port': 6379,
+#     'db': 1,
+#     'socket_timeout': 3,
+# }
 
-CACHEOPS = {
-    'inteview.student': {'ops': 'all', 'timeout': 60 * 15},
-    'inteview.mark': {'ops': ('fetch', 'get'), 'timeout': 60 * 5},  # only fetch/get ops
-    # 'app_name.model_name': ...
-}
-
-# Optional: Enable logging
-CACHEOPS_LOGGING = True
+# CACHEOPS = {
+#     'inteview.student': {'ops': 'all', 'timeout': 60 * 15},
+#     'inteview.mark': {'ops': ('fetch', 'get'), 'timeout': 60 * 5},  # only fetch/get ops
+#     # 'app_name.model_name': ...
+# }
+#
+# # Optional: Enable logging
+# CACHEOPS_LOGGING = True

@@ -18,16 +18,25 @@ class Student(models.Model):
     age = models.IntegerField()
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f"{Student.name}"
+
 
 class Subject(models.Model):
     name = models.CharField(max_length=100)
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{Subject.name}"
 
 
 class Mark(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     marks_obtained = models.IntegerField()
+
+    def __str__(self):
+        return f"{Mark.subject} {Mark.student}"
 
 
 from django.db import models

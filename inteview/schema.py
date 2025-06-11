@@ -34,6 +34,12 @@ class StudentType(DjangoObjectType):
         fields = ("id", "name", "age", "department")
 
 
+class MarkType(DjangoObjectType):
+    class Meta:
+        model = Mark
+        fields = ("id", "student", "subject", "marks_obtained")
+
+
 class Query(graphene.ObjectType):
     all_ingredients = graphene.List(IngredientType)
     category_by_name = graphene.List(CategoryType, name=graphene.String(required=True))
