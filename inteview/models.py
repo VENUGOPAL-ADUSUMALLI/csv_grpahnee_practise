@@ -1,4 +1,5 @@
-from django.db import models
+from django.contrib.admin import models
+
 from django.contrib.auth.models import User
 
 
@@ -11,6 +12,9 @@ class Booking(models.Model):
 
 class Department(models.Model):
     name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.name}"
 
 
 class Student(models.Model):
